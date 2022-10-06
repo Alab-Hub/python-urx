@@ -210,8 +210,8 @@ class ParserUtils(object):
                     data = data[1:]
                     counter += 1
                     if counter > limit:
-                        self.logger.warning("tried %s times to find a packet in data, advertised packet size: %s, type: %s", counter, psize, ptype)
-                        self.logger.warning("Data length: %s", len(data))
+                        # self.logger.warning("tried %s times to find a packet in data, advertised packet size: %s, type: %s", counter, psize, ptype)
+                        # self.logger.warning("Data length: %s", len(data))
                         limit = limit * 10
                 elif len(data) >= psize:
                     self.logger.debug("Got packet with size %s and type %s", psize, ptype)
@@ -250,6 +250,7 @@ class SecondaryMonitor(Thread):
         self.running = False  # True when robot is on and listening
         self._dataEvent = Condition()
         self.lastpacket_timestamp = 0
+        self.daemon = True
 
         self.start()
         try:
