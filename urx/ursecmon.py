@@ -119,8 +119,8 @@ class ParserUtils(object):
                     allData["robotCommMessage"] = self._get_data(pdata, "!iBQbb iiAc", ("size", "type", "timestamp", "source", "robotMessageType", "code", "argument", "messageText"))
                 elif tmp["robotMessageType"] == 1:
                     allData["labelMessage"] = self._get_data(pdata, "!iBQbb iAc", ("size", "type", "timestamp", "source", "robotMessageType", "id", "messageText"))
-                elif tmp["robotMessageType"] == 2:
-                    allData["popupMessage"] = self._get_data(pdata, "!iBQbb ??BAcAc", ("size", "type", "timestamp", "source", "robotMessageType", "warning", "error", "titleSize", "messageTitle", "messageText"))
+                elif tmp["robotMessageType"] == 9:
+                    allData["popupMessage"] = self._get_data(pdata, "!iBQbbII ???BAcAc", ("size", "type", "timestamp", "source", "robotMessageType", "request_id", "requested_type", "warning", "error", "blocking", "titleSize", "messageTitle", "messageText"))
                 elif tmp["robotMessageType"] == 0:
                     allData["messageText"] = self._get_data(pdata, "!iBQbb Ac", ("size", "type", "timestamp", "source", "robotMessageType", "messageText"))
                 elif tmp["robotMessageType"] == 8:
